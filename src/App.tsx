@@ -4,7 +4,7 @@ import Header from './components/header'
 
 export default function App() {
   return (
-    <div>
+    <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr' }}>
       <div id="menu">
         <b>markdown</b>
         <h2>my documents</h2>
@@ -23,9 +23,18 @@ export default function App() {
       </div>
       <div id="main">
         <Header />
-        <article id="editor">
+        <article
+          id="editor"
+          style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}
+        >
           <main id="markdown">
-            <header>
+            <header
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+            >
               <h2>markdown</h2>
               <button className={button({ variant: 'icon' })}>
                 <Eye width={16} />
@@ -34,7 +43,13 @@ export default function App() {
             <textarea></textarea>
           </main>
           <aside id="preview">
-            <header>
+            <header
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+              }}
+            >
               <h2>preview</h2>
               <button className={button({ variant: 'icon' })}>
                 <EyeOff width={16} />
