@@ -20,9 +20,9 @@ const root = createGlobalTheme(':root', {
     orangeHover: 'hsl(21, 86%, 67%)',
   },
   fontFamily: {
-    sans: 'Roboto',
-    serif: 'Roboto Slab',
-    mono: 'Roboto Mono',
+    sans: `'Roboto', sans-serif`,
+    slab: `'Roboto Slab Variable', sans-serif`,
+    mono: `'Roboto Mono Variable', sans-serif`,
   },
   fontSize: {
     appHeadingMd: '15px',
