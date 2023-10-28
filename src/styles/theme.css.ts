@@ -48,6 +48,7 @@ const root = createGlobalTheme(':root', {
 const editor = createThemeContract({
   background: null,
   background_on: null,
+  border: null,
   text: null,
   text_light: null,
 })
@@ -55,13 +56,15 @@ const editor = createThemeContract({
 export const lightTheme = createTheme(editor, {
   background: root.color[100],
   background_on: root.color[200],
+  border: root.color[300],
   text: root.color[700],
   text_light: root.color[500],
 })
 
 export const darkTheme = createTheme(editor, {
   background: root.color[1000],
-  background_on: root.color[800],
+  background_on: root.color[900],
+  border: root.color[600],
   text: root.color[100],
   text_light: root.color[400],
 })
