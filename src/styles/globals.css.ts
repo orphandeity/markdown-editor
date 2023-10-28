@@ -7,14 +7,11 @@ globalStyle('html, body', {
 
 // reset styles inspired by Josh Comeau
 // https://www.joshwcomeau.com/css/custom-css-reset/
-globalStyle('*', {
+globalStyle('*, *::before, *::after', {
+  boxSizing: 'border-box',
   margin: '0',
   padding: '0',
   lineHeight: 'calc(1em + 0.5rem)',
-})
-
-globalStyle('*::before, *::after', {
-  boxSizing: 'border-box',
 })
 
 globalStyle('body', {

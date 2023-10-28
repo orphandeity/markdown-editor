@@ -1,26 +1,12 @@
 import { button } from './styles/button.css'
 import { Eye, EyeOff } from 'lucide-react'
 import Header from './components/header'
+import Menu from './components/menu'
 
 export default function App() {
   return (
     <div style={{ display: 'grid', gridTemplateColumns: 'auto 1fr' }}>
-      <div id="menu">
-        <b>markdown</b>
-        <h2>my documents</h2>
-        <button className={button()}>+ New Document</button>
-        <ul>
-          <li>
-            <div>created_at</div>
-            <div>filename</div>
-          </li>
-          <li>
-            <div>created_at</div>
-            <div>filename</div>
-          </li>
-        </ul>
-        <button>theme</button>
-      </div>
+      <Menu />
       <div id="main">
         <Header />
         <article
