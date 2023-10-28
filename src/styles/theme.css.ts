@@ -36,6 +36,7 @@ const root = createGlobalTheme(':root', {
     previewH6: '14px',
     previewP: '14px',
   },
+  rounded: '4px',
   appHeadingSmLtrSp: '2px',
   previewLineSp: '24px',
 })
