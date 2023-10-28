@@ -36,6 +36,10 @@ const root = createGlobalTheme(':root', {
     previewH6: '14px',
     previewP: '14px',
   },
+  fontWeight: {
+    light: '300',
+    regular: '400',
+  },
   rounded: '4px',
   appHeadingSmLtrSp: '2px',
   previewLineSp: '24px',

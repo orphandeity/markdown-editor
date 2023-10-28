@@ -1,7 +1,6 @@
 import { button } from './styles/button.css'
-import iconMenu from './assets/icon-menu.svg'
-import iconSave from './assets/icon-save.svg'
-import { Eye, EyeOff, File, Trash2 } from 'lucide-react'
+import { Eye, EyeOff } from 'lucide-react'
+import Header from './components/header'
 
 export default function App() {
   return (
@@ -23,31 +22,7 @@ export default function App() {
         <button>theme</button>
       </div>
       <div id="main">
-        <header>
-          <button
-            style={{
-              aspectRatio: '1/1',
-              width: '72px',
-              display: 'grid',
-              placeItems: 'center',
-            }}
-          >
-            <img src={iconMenu} alt="show menu" />
-          </button>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <File width={14} />
-            <span>filename</span>
-          </div>
-          <menu>
-            <button className={button({ variant: 'icon' })}>
-              <Trash2 width={18} />
-            </button>
-            <button className={button()}>
-              <img src={iconSave} alt="" />
-              <span>Save Changes</span>
-            </button>
-          </menu>
-        </header>
+        <Header />
         <article id="editor">
           <main id="markdown">
             <header>
