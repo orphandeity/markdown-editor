@@ -29,11 +29,13 @@ export const heading = style({
 
 export const markdown = style({
   height: 'calc(100vh - 72px)',
+  display: 'flex',
+  flexDirection: 'column',
 })
 
 export const markdownEditor = style({
+  flex: '1 1 auto',
   width: '100%',
-  height: '100%',
   fontFamily: vars.fontFamily.mono,
   color: vars.editor.text,
   backgroundColor: vars.editor.background,

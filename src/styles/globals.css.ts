@@ -3,6 +3,8 @@ import { vars } from './theme.css'
 
 globalStyle('html, body', {
   fontFamily: vars.fontFamily.sans,
+  maxHeight: '100vh',
+  overflow: 'hidden',
 })
 
 // reset styles inspired by Josh Comeau
