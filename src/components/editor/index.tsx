@@ -1,7 +1,12 @@
+import { type Document } from '../../App'
 import { Eye, EyeOff } from 'lucide-react'
 import * as styles from './editor.css'
 
-export default function Editor() {
+interface EditorProps {
+  document: Document | null
+}
+
+export default function Editor({ document }: EditorProps): JSX.Element {
   return (
     <article className={styles.container}>
       <main className={styles.markdown}>
@@ -11,7 +16,10 @@ export default function Editor() {
             <Eye width={16} />
           </button>
         </header>
-        <textarea className={styles.markdownEditor}></textarea>
+        <textarea
+          value={document?.content}
+          className={styles.markdownEditor}
+        ></textarea>
       </main>
       <aside className={styles.preview}>
         <header className={styles.header}>

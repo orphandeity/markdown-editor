@@ -8,12 +8,14 @@ interface MenuProps {
   documents: Document[]
   onNewDocumentClick: () => void
   onThemeClick: () => void
+  onDocumentSelect: (document: Document) => void
 }
 
 export default function Menu({
   documents,
   onNewDocumentClick,
   onThemeClick,
+  onDocumentSelect,
 }: MenuProps): JSX.Element {
   return (
     <div className={styles.container}>
@@ -24,7 +26,11 @@ export default function Menu({
         </button>
         <ul className={styles.fileList}>
           {documents.map((document) => (
-            <li key={document.name} className={fileItem.container}>
+            <li
+              key={document.name}
+              onClick={() => onDocumentSelect(document)}
+              className={fileItem.container}
+            >
               <File width={14} />
               <div className={fileItem.group}>
                 <div className={fileItem.date}>

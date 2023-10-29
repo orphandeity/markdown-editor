@@ -14,6 +14,7 @@ export interface Document {
 export default function App() {
   const [darkMode, setDarkMode] = useState<boolean>(false)
   const [documents, setDocuments] = useState<Document[]>([])
+  const [selected, setSelected] = useState<Document | null>(null)
 
   useEffect(() => {
     const storedDocuments = localStorage.getItem('documents')
@@ -21,6 +22,7 @@ export default function App() {
       setDocuments(JSON.parse(storedDocuments))
     } else {
       setDocuments(initDocuments)
+      setSelected(initDocuments[1])
     }
   }, [])
 
@@ -33,10 +35,11 @@ export default function App() {
         documents={documents}
         onNewDocumentClick={() => console.log('new document')}
         onThemeClick={() => setDarkMode(!darkMode)}
+        onDocumentSelect={(document) => setSelected(document)}
       />
       <div id="main">
-        <Header />
-        <Editor />
+        <Header document={selected} />
+        <Editor document={selected} />
       </div>
     </div>
   )

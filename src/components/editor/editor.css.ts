@@ -33,6 +33,7 @@ export const markdown = style({
 
 export const markdownEditor = style({
   width: '100%',
+  height: '100%',
   fontFamily: vars.fontFamily.mono,
   color: vars.editor.text,
   backgroundColor: vars.editor.background,
