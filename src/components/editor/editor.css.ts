@@ -23,6 +23,7 @@ export const header = style({
 
 export const heading = style({
   fontSize: vars.fontSize.appHeadingSm,
+  letterSpacing: vars.appHeadingSmLtrSp,
   fontWeight: vars.fontWeight.regular,
   textTransform: 'uppercase',
 })
@@ -37,6 +38,8 @@ export const markdownEditor = style({
   flex: '1 1 auto',
   width: '100%',
   fontFamily: vars.fontFamily.mono,
+  fontSize: vars.fontSize.previewP,
+  lineHeight: vars.previewLineSp,
   color: vars.editor.text,
   backgroundColor: vars.editor.background,
   padding: '9px 16px',

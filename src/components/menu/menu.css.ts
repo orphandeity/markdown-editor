@@ -18,6 +18,7 @@ export const heading = style({
       fontSize: vars.fontSize.appHeadingSm,
       fontWeight: vars.fontWeight.regular,
       textTransform: 'uppercase',
+      letterSpacing: vars.appHeadingSmLtrSp,
     },
   },
 })

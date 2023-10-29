@@ -13,7 +13,6 @@ globalStyle('*, *::before, *::after', {
   boxSizing: 'border-box',
   margin: '0',
   padding: '0',
-  lineHeight: 'calc(1em + 0.5rem)',
 })
 
 globalStyle('body', {
