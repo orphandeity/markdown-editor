@@ -22,9 +22,13 @@ export default function App() {
       setDocuments(JSON.parse(storedDocuments))
     } else {
       setDocuments(initDocuments)
-      setSelected(initDocuments[1])
     }
   }, [])
+
+  useEffect(() => {
+    const lastIdx = documents.length - 1
+    setSelected(documents[lastIdx])
+  }, [documents])
 
   return (
     <div
