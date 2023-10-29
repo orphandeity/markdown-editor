@@ -7,6 +7,7 @@ import { File, Trash2 } from 'lucide-react'
 import * as styles from './header.css'
 import * as fileItem from '../../styles/fileItem.css'
 import { button } from '../../styles/button.css'
+import { formatDate } from '../../lib/utils'
 
 interface HeaderProps {
   document: Document | null
@@ -24,7 +25,9 @@ export default function Header({ document }: HeaderProps): JSX.Element {
         <div className={fileItem.container}>
           <File width={14} />
           <div className={fileItem.group}>
-            <div className={fileItem.date}>{document?.createdAt}</div>
+            <div className={fileItem.date}>
+              {document ? formatDate(document.createdAt) : ''}
+            </div>
             <div className={fileItem.name}>{document?.name}</div>
           </div>
         </div>
