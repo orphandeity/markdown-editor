@@ -2,7 +2,7 @@ import { Document } from '../../App'
 import { formatDate } from '../../lib/utils'
 import * as styles from './menu.css'
 import * as fileItem from '../../styles/fileItem.css'
-import { File } from 'lucide-react'
+import fileIcon from '../../assets/icon-document.svg'
 
 interface MenuProps {
   documents: Document[]
@@ -31,7 +31,7 @@ export default function Menu({
               onClick={() => onDocumentSelect(document)}
               className={fileItem.container}
             >
-              <File width={14} />
+              <img src={fileIcon} alt="" />
               <div className={fileItem.group}>
                 <div className={fileItem.date}>
                   {formatDate(document.createdAt)}

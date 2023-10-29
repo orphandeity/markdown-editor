@@ -6,6 +6,12 @@ export const container = style({
   alignItems: 'center',
   gap: '16px',
   color: vars.color[100],
+  cursor: 'pointer',
+  selectors: {
+    '&:hover': {
+      color: vars.color.orange,
+    },
+  },
 })
 
 export const group = style({

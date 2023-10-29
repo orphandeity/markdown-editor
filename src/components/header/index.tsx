@@ -2,7 +2,8 @@ import { type Document } from '../../App'
 import logo from '../../assets/logo.svg'
 import iconMenu from '../../assets/icon-menu.svg'
 import iconSave from '../../assets/icon-save.svg'
-import { File, Trash2 } from 'lucide-react'
+import { Trash2 } from 'lucide-react'
+import fileIcon from '../../assets/icon-document.svg'
 
 import * as styles from './header.css'
 import * as fileItem from '../../styles/fileItem.css'
@@ -23,7 +24,7 @@ export default function Header({ document }: HeaderProps): JSX.Element {
         <img src={logo} alt="markdown" />
         <div className={styles.divider} />
         <div className={fileItem.container}>
-          <File width={14} />
+          <img src={fileIcon} alt="" />
           <div className={fileItem.group}>
             <div className={fileItem.date}>
               {document ? formatDate(document.createdAt) : ''}
