@@ -2,9 +2,10 @@ import logo from '../../assets/logo.svg'
 import iconMenu from '../../assets/icon-menu.svg'
 import iconSave from '../../assets/icon-save.svg'
 import { File, Trash2 } from 'lucide-react'
-import { button } from '../../styles/button.css'
 
 import * as styles from './header.css'
+import * as fileItem from '../../styles/fileItem.css'
+import { button } from '../../styles/button.css'
 
 export default function Header() {
   return (
@@ -15,11 +16,11 @@ export default function Header() {
         </button>
         <img src={logo} alt="markdown" />
         <div className={styles.divider} />
-        <div className={styles.flexRow}>
+        <div className={fileItem.container}>
           <File width={14} />
-          <div className={styles.flexColumn}>
-            <div className={styles.date}>created_at</div>
-            <div className={styles.filname}>filename</div>
+          <div className={fileItem.group}>
+            <div className={fileItem.date}>created_at</div>
+            <div className={fileItem.name}>filename</div>
           </div>
         </div>
       </div>

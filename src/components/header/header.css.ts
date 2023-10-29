@@ -39,38 +39,3 @@ export const divider = style({
     },
   },
 })
-
-export const flexRow = style({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '16px',
-  color: vars.color[100],
-})
-
-export const flexColumn = style({
-  selectors: {
-    [`${flexRow} &`]: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '3px',
-    },
-  },
-})
-
-export const date = style({
-  selectors: {
-    [`${flexRow} &`]: {
-      fontSize: vars.fontSize.appBodySm,
-      fontWeight: vars.fontWeight.light,
-      color: vars.color[500],
-    },
-  },
-})
-
-export const filname = style({
-  selectors: {
-    [`${flexRow} &`]: {
-      fontSize: vars.fontSize.appHeadingMd,
-    },
-  },
-})
