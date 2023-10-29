@@ -53,7 +53,7 @@ const editor = createThemeContract({
   text_light: null,
 })
 
-export const lightTheme = createTheme(editor, {
+export const light = createTheme(editor, {
   background: root.color[100],
   background_on: root.color[200],
   border: root.color[300],
@@ -61,7 +61,7 @@ export const lightTheme = createTheme(editor, {
   text_light: root.color[500],
 })
 
-export const darkTheme = createTheme(editor, {
+export const dark = createTheme(editor, {
   background: root.color[1000],
   background_on: root.color[900],
   border: root.color[600],
