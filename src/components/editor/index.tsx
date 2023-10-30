@@ -1,8 +1,7 @@
 import { type Document } from '../../App'
 import { useState } from 'react'
-import Markdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
-import { Eye, EyeOff } from 'lucide-react'
+import { Eye } from 'lucide-react'
+import Preview from './preview'
 
 import * as styles from './editor.css'
 
@@ -28,17 +27,7 @@ export default function Editor({ document }: EditorProps): JSX.Element {
           value={markdown}
         ></textarea>
       </main>
-      <aside className={styles.preview}>
-        <header className={styles.header}>
-          <h2 className={styles.heading}>preview</h2>
-          <button className={styles.iconButton}>
-            <EyeOff width={16} />
-          </button>
-        </header>
-        <Markdown className={styles.previewContent} remarkPlugins={[remarkGfm]}>
-          {markdown}
-        </Markdown>
-      </aside>
+      <Preview markdown={markdown} />
     </article>
   )
 }
