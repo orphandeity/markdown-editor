@@ -30,6 +30,7 @@ export const heading = style({
 
 export const markdown = style({
   height: 'calc(100vh - 72px)',
+  width: '50vw',
   display: 'flex',
   flexDirection: 'column',
 })
@@ -48,9 +49,10 @@ export const markdownEditor = style({
 })
 
 export const preview = style({
+  height: 'calc(100vh - 72px)',
+  width: '50vw',
   fontFamily: vars.fontFamily.slab,
   borderLeft: `1px solid ${vars.editor.border}`,
-  height: 'calc(100vh - 72px)',
 })
 
 export const previewContent = style({

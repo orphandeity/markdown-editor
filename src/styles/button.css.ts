@@ -25,10 +25,11 @@ export const button = recipe({
         },
       },
       primary: {
-        backgroundColor: vars.color.orange,
-        color: vars.color[100],
-        borderRadius: vars.rounded,
+        width: '100%',
         padding: '10px 16px',
+        borderRadius: vars.rounded,
+        color: vars.color[100],
+        backgroundColor: vars.color.orange,
         selectors: {
           '&:hover': {
             backgroundColor: vars.color.orangeHover,

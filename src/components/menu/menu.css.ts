@@ -7,6 +7,7 @@ export const container = style({
   flexDirection: 'column',
   justifyContent: 'space-between',
   height: '100vh',
+  minWidth: 'fit-content',
   padding: '27px 24px 24px',
   backgroundColor: vars.color[900],
   color: vars.color[500],

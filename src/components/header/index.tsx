@@ -11,14 +11,18 @@ import { button } from '../../styles/button.css'
 import { formatDate } from '../../lib/utils'
 
 interface HeaderProps {
-  document: Document | null
+  document: Document
+  onMenuOpen: () => void
 }
 
-export default function Header({ document }: HeaderProps): JSX.Element {
+export default function Header({
+  document,
+  onMenuOpen,
+}: HeaderProps): JSX.Element {
   return (
     <header className={styles.container}>
       <div className={styles.flexBox}>
-        <button className={styles.menuButton}>
+        <button className={styles.menuButton} onClick={onMenuOpen}>
           <img src={iconMenu} alt="show menu" />
         </button>
         <img src={logo} alt="markdown" />
