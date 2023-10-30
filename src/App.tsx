@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import initDocuments from './data.json'
 import Menu from './components/menu'
 import Header from './components/header'
-import Editor from './components/editor'
+import MarkdownEditor from './components/markdown'
+
 import { dark, light } from './styles/theme.css'
 import { container } from './styles/app.css'
 
@@ -42,7 +43,7 @@ export default function App() {
       />
       <div id="main">
         <Header document={selected} onMenuOpen={() => setOpen(!open)} />
-        <Editor document={selected} />
+        <MarkdownEditor document={selected} />
       </div>
     </div>
   )
