@@ -1,12 +1,18 @@
 import { type Document } from '../../App'
+import { useState } from 'react'
+import Markdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { Eye, EyeOff } from 'lucide-react'
+
 import * as styles from './editor.css'
 
 interface EditorProps {
-  document: Document | null
+  document: Document
 }
 
 export default function Editor({ document }: EditorProps): JSX.Element {
+  const [markdown, setMarkdown] = useState<string>(() => document.content ?? '')
+
   return (
     <article className={styles.container}>
       <main className={styles.markdown}>
@@ -17,8 +23,9 @@ export default function Editor({ document }: EditorProps): JSX.Element {
           </button>
         </header>
         <textarea
-          value={document?.content}
           className={styles.markdownEditor}
+          onChange={(e) => setMarkdown(e.target.value)}
+          value={markdown}
         ></textarea>
       </main>
       <aside className={styles.preview}>
@@ -28,7 +35,9 @@ export default function Editor({ document }: EditorProps): JSX.Element {
             <EyeOff width={16} />
           </button>
         </header>
-        <div className={styles.previewContent}></div>
+        <Markdown className={styles.previewContent} remarkPlugins={[remarkGfm]}>
+          {markdown}
+        </Markdown>
       </aside>
     </article>
   )

@@ -14,7 +14,7 @@ export interface Document {
 export default function App() {
   const [darkMode, setDarkMode] = useState<boolean>(false)
   const [documents, setDocuments] = useState<Document[]>([])
-  const [selected, setSelected] = useState<Document | null>(null)
+  const [selected, setSelected] = useState<Document>(initDocuments[1])
 
   useEffect(() => {
     const storedDocuments = localStorage.getItem('documents')
