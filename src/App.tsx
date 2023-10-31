@@ -30,23 +30,21 @@ const defaultDocuments: Document[] = [
 export default function App() {
   const [darkMode, setDarkMode] = useState<boolean>(false)
   const [open, setOpen] = useState<boolean>(false)
-  const [documents, setDocuments] = useState<Document[]>(defaultDocuments)
+  const [documents, setDocuments] = useState<Document[]>([])
   const [selected, setSelected] = useState<Document>(defaultDocuments[1])
 
+  // Check if localStorage is available and load documents
+  // if not available, fallback to default documents
   useEffect(() => {
-    // Check if localStorage is available
     if (storageAvailable()) {
       const docs = localStorage.getItem('documents')
       if (docs) {
-        // Load documents from localStorage
         setDocuments(JSON.parse(docs))
       } else {
-        // Fallback to default documents
         localStorage.setItem('documents', JSON.stringify(defaultDocuments))
         setDocuments(defaultDocuments)
       }
     } else {
-      // Fallback to default documents
       setDocuments(defaultDocuments)
     }
   }, [])
@@ -56,13 +54,28 @@ export default function App() {
     setSelected(documents[lastIdx])
   }, [documents])
 
+  function createNewDocument() {
+    const newDocument: Document = {
+      createdAt: new Date().toISOString(),
+      name: 'untitled-document.md',
+      content: '',
+    }
+    if (storageAvailable()) {
+      localStorage.setItem(
+        'documents',
+        JSON.stringify([...documents, newDocument])
+      )
+    }
+    setDocuments((prev) => [...prev, newDocument])
+  }
+
   return (
     <div data-open={open} className={`${darkMode ? dark : light} ${container}`}>
       <Menu
         darkMode={darkMode}
         documents={documents}
         onDocumentSelect={(document) => setSelected(document)}
-        onNewDocumentClick={() => console.log('new document')}
+        onNewDocumentClick={createNewDocument}
         onThemeChange={() => setDarkMode(!darkMode)}
       />
       <div id="main">
