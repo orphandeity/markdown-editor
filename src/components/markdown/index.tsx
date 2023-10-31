@@ -1,5 +1,5 @@
 import { type Document } from '../../App'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import Editor from './editor'
 import Preview from './preview'
@@ -11,10 +11,13 @@ interface EditorProps {
 }
 
 export default function MarkdownEditor({ document }: EditorProps): JSX.Element {
-  const [markdown, setMarkdown] = useState<string>(() => document.content ?? '')
+  const [markdown, setMarkdown] = useState<string>('')
   const [showPreview, setShowPreview] = useState<boolean>(false)
-
   const [parent, enableAnimations] = useAutoAnimate()
+
+  useEffect(() => {
+    setMarkdown(document.content)
+  }, [document])
 
   return (
     <article ref={parent} className={container}>
