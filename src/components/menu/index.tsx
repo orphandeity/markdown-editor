@@ -1,9 +1,11 @@
 import { Document } from '../../App'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { format } from 'date-fns'
+import Theme from '../theme'
+import fileIcon from '../../assets/icon-document.svg'
+
 import * as styles from './menu.css'
 import * as fileItem from '../../styles/fileItem.css'
-import fileIcon from '../../assets/icon-document.svg'
-import Theme from '../theme'
-import { format } from 'date-fns'
 
 interface MenuProps {
   darkMode: boolean
@@ -20,6 +22,9 @@ export default function Menu({
   onThemeChange,
   onDocumentSelect,
 }: MenuProps): JSX.Element {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [parent, enableAnimations] = useAutoAnimate()
+
   return (
     <div className={styles.container}>
       <div>
@@ -27,7 +32,7 @@ export default function Menu({
         <button className={styles.primaryButton} onClick={onNewDocumentClick}>
           + New Document
         </button>
-        <ul className={styles.fileList}>
+        <ul ref={parent} className={styles.fileList}>
           {documents.map((document) => (
             <li
               key={document.name}
