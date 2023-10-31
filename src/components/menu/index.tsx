@@ -3,18 +3,21 @@ import { formatDate } from '../../lib/utils'
 import * as styles from './menu.css'
 import * as fileItem from '../../styles/fileItem.css'
 import fileIcon from '../../assets/icon-document.svg'
+import Theme from '../theme'
 
 interface MenuProps {
+  darkMode: boolean
   documents: Document[]
   onNewDocumentClick: () => void
-  onThemeClick: () => void
+  onThemeChange: () => void
   onDocumentSelect: (document: Document) => void
 }
 
 export default function Menu({
+  darkMode,
   documents,
   onNewDocumentClick,
-  onThemeClick,
+  onThemeChange,
   onDocumentSelect,
 }: MenuProps): JSX.Element {
   return (
@@ -42,7 +45,7 @@ export default function Menu({
           ))}
         </ul>
       </div>
-      <button onClick={onThemeClick}>theme</button>
+      <Theme darkMode={darkMode} onThemeChange={onThemeChange} />
     </div>
   )
 }

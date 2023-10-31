@@ -39,7 +39,8 @@ export default function App() {
         documents={documents}
         onNewDocumentClick={() => console.log('new document')}
         onDocumentSelect={(document) => setSelected(document)}
-        onThemeClick={() => setDarkMode(!darkMode)}
+        darkMode={darkMode}
+        onThemeChange={() => setDarkMode(!darkMode)}
       />
       <div id="main">
         <Header document={selected} onMenuOpen={() => setOpen(!open)} />
