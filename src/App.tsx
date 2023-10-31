@@ -30,8 +30,8 @@ const defaultDocuments: Document[] = [
 export default function App() {
   const [darkMode, setDarkMode] = useState<boolean>(false)
   const [open, setOpen] = useState<boolean>(false)
-  const [documents, setDocuments] = useState<Document[]>([])
-  const [selected, setSelected] = useState<Document>(defaultDocuments[1])
+  const [documents, setDocuments] = useState<Document[]>(defaultDocuments)
+  const [selected, setSelected] = useState<Document>(documents[1])
 
   // Check if localStorage is available and load documents
   // if not available, fallback to default documents
