@@ -36,7 +36,7 @@ export default function Header({
             <span className={filename.span}>Document Name</span>
             <input
               type="text"
-              value={document?.name}
+              value={document.name}
               className={filename.input}
             />
           </label>
