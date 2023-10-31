@@ -3,8 +3,9 @@ import { button } from '../../styles/button.css'
 import { vars } from '../../styles/theme.css'
 
 export const container = style({
-  display: 'grid',
-  gridTemplateColumns: '1fr 1fr',
+  display: 'flex',
+  flexFlow: 'row nowrap',
+  width: '100vw',
   backgroundColor: vars.editor.background,
   color: vars.editor.text,
 })
@@ -15,6 +16,8 @@ export const header = style({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
+  maxHeight: '42px',
+  width: 'clamp(50vw, 100%, 100%)',
   padding: '13px 16px',
   fontFamily: vars.fontFamily.sans,
   backgroundColor: vars.editor.background_on,
@@ -29,15 +32,14 @@ export const heading = style({
 })
 
 export const markdown = style({
-  height: 'calc(100vh - 72px)',
-  width: '50vw',
   display: 'flex',
   flexDirection: 'column',
+  height: 'calc(100vh - 72px)',
 })
 
 export const markdownEditor = style({
   flex: '1 1 auto',
-  width: '100%',
+  width: '50vw',
   fontFamily: vars.fontFamily.mono,
   fontSize: vars.fontSize.previewP,
   lineHeight: vars.previewLineSp,
@@ -50,12 +52,14 @@ export const markdownEditor = style({
 
 export const preview = style({
   height: 'calc(100vh - 72px)',
-  width: '50vw',
   fontFamily: vars.fontFamily.slab,
+  width: '100%',
   borderLeft: `1px solid ${vars.editor.border}`,
 })
 
 export const previewContent = style({
+  width: '50vw',
+  marginInline: 'auto',
   padding: '24px',
   overflow: 'auto',
 })

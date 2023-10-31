@@ -39,7 +39,7 @@ export default function Header({
       </div>
       <menu className={styles.flexBox}>
         <button className={button({ variant: 'icon' })}>
-          <Trash2 width={18} />
+          <Trash2 />
         </button>
         <button className={button()}>
           <img src={iconSave} alt="" />
