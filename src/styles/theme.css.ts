@@ -18,6 +18,7 @@ const root = createGlobalTheme(':root', {
     100: 'hsl(0, 0%, 100%)',
     orange: 'hsl(13, 75%, 58%)',
     orangeHover: 'hsl(21, 86%, 67%)',
+    orangeSelection: 'hsla(21, 86%, 67%, 0.4)',
   },
   fontFamily: {
     sans: `'Roboto', sans-serif`,

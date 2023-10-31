@@ -6,9 +6,8 @@ import { Trash2 } from 'lucide-react'
 import fileIcon from '../../assets/icon-document.svg'
 
 import * as styles from './header.css'
-import * as fileItem from '../../styles/fileItem.css'
+import * as filename from './filename.css'
 import { button } from '../../styles/button.css'
-import { formatDate } from '../../lib/utils'
 
 interface HeaderProps {
   document: Document
@@ -25,16 +24,22 @@ export default function Header({
         <button className={styles.menuButton} onClick={onMenuOpen}>
           <img src={iconMenu} alt="show menu" />
         </button>
+
         <img src={logo} alt="markdown" />
+
         <div className={styles.divider} />
-        <div className={fileItem.container}>
+
+        <div className={filename.container}>
           <img src={fileIcon} alt="" />
-          <div className={fileItem.group}>
-            <div className={fileItem.date}>
-              {document ? formatDate(document.createdAt) : ''}
-            </div>
-            <div className={fileItem.name}>{document?.name}</div>
-          </div>
+
+          <label className={filename.label}>
+            <span className={filename.span}>Document Name</span>
+            <input
+              type="text"
+              value={document?.name}
+              className={filename.input}
+            />
+          </label>
         </div>
       </div>
       <menu className={styles.flexBox}>
