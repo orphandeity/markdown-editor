@@ -6,6 +6,7 @@ import MarkdownEditor from './components/markdown'
 
 import { dark, light } from './styles/theme.css'
 import { container } from './styles/app.css'
+import { storageAvailable } from './lib/utils'
 
 export interface Document {
   createdAt: string
@@ -20,10 +21,19 @@ export default function App() {
   const [selected, setSelected] = useState<Document>(initDocuments[1])
 
   useEffect(() => {
-    const storedDocuments = localStorage.getItem('documents')
-    if (storedDocuments) {
-      setDocuments(JSON.parse(storedDocuments))
+    // Check if localStorage is available
+    if (storageAvailable()) {
+      const docs = localStorage.getItem('documents')
+      if (docs) {
+        // Load documents from localStorage
+        setDocuments(JSON.parse(docs))
+      } else {
+        // Fallback to default documents
+        localStorage.setItem('documents', JSON.stringify(initDocuments))
+        setDocuments(initDocuments)
+      }
     } else {
+      // Fallback to default documents
       setDocuments(initDocuments)
     }
   }, [])
@@ -36,10 +46,10 @@ export default function App() {
   return (
     <div data-open={open} className={`${darkMode ? dark : light} ${container}`}>
       <Menu
-        documents={documents}
-        onNewDocumentClick={() => console.log('new document')}
-        onDocumentSelect={(document) => setSelected(document)}
         darkMode={darkMode}
+        documents={documents}
+        onDocumentSelect={(document) => setSelected(document)}
+        onNewDocumentClick={() => console.log('new document')}
         onThemeChange={() => setDarkMode(!darkMode)}
       />
       <div id="main">
