@@ -1,21 +1,3 @@
-export function formatDate(date: string): string {
-  const parts = date.split('-')
-
-  const inputDate = new Date(
-    Number(parts[2]),
-    Number(parts[0]) - 1,
-    Number(parts[1])
-  )
-
-  const formattedDate = new Intl.DateTimeFormat('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }).format(inputDate)
-
-  return formattedDate
-}
-
 // detects whether localStorage is both supported and available
 // https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
 export function storageAvailable() {

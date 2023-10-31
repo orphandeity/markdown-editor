@@ -1,9 +1,9 @@
 import { Document } from '../../App'
-import { formatDate } from '../../lib/utils'
 import * as styles from './menu.css'
 import * as fileItem from '../../styles/fileItem.css'
 import fileIcon from '../../assets/icon-document.svg'
 import Theme from '../theme'
+import { format } from 'date-fns'
 
 interface MenuProps {
   darkMode: boolean
@@ -37,7 +37,7 @@ export default function Menu({
               <img src={fileIcon} alt="" />
               <div className={fileItem.group}>
                 <div className={fileItem.date}>
-                  {formatDate(document.createdAt)}
+                  {format(Date.parse(document.createdAt), 'dd MMMM yyyy')}
                 </div>
                 <div className={fileItem.name}>{document.name}</div>
               </div>
