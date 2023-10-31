@@ -16,7 +16,7 @@ export default function Preview({
   ...props
 }: PreviewProps & React.HTMLProps<HTMLElement>): JSX.Element {
   return (
-    <aside {...props} className={styles.preview}>
+    <aside {...props} data-show={showPreview} className={styles.preview}>
       <header className={styles.header}>
         <h2 className={styles.heading}>preview</h2>
 

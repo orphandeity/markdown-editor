@@ -55,6 +55,12 @@ export const preview = style({
   fontFamily: vars.fontFamily.slab,
   width: '100%',
   borderLeft: `1px solid ${vars.editor.border}`,
+  transition: 'border-color 0.6s ease-in-out',
+  selectors: {
+    '&[data-show="true"]': {
+      borderColor: 'transparent',
+    },
+  },
 })
 
 export const previewContent = style({
