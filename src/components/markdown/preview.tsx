@@ -1,7 +1,8 @@
 import Markdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
-import * as styles from './editor.css'
 import { Eye, EyeOff } from 'lucide-react'
+
+import * as styles from './markdown.css'
 
 interface PreviewProps {
   markdown: string

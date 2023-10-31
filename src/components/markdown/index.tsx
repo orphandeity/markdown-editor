@@ -4,7 +4,7 @@ import { useAutoAnimate } from '@formkit/auto-animate/react'
 import Editor from './editor'
 import Preview from './preview'
 
-import { container } from './editor.css'
+import { container } from './markdown.css'
 
 interface EditorProps {
   document: Document
@@ -13,10 +13,15 @@ interface EditorProps {
 export default function MarkdownEditor({ document }: EditorProps): JSX.Element {
   const [markdown, setMarkdown] = useState<string>('')
   const [showPreview, setShowPreview] = useState<boolean>(false)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [parent, enableAnimations] = useAutoAnimate()
 
   useEffect(() => {
-    setMarkdown(document.content)
+    if (document) {
+      setMarkdown(document.content)
+    } else {
+      setMarkdown('')
+    }
   }, [document])
 
   return (

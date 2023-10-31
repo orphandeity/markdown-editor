@@ -1,4 +1,4 @@
-import * as styles from './editor.css'
+import * as styles from './markdown.css'
 
 interface MarkdownProps {
   markdown?: string
