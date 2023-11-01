@@ -34,11 +34,13 @@ const documents: Document[] = localDocs
 // Define a type for the slice state
 interface markdownState {
   documents: Document[]
+  currentDocument: Document
 }
 
 // Define the initial state using that type
 const initialState: markdownState = {
   documents,
+  currentDocument: documents[documents.length - 1],
 }
 
 export const markdownSlice = createSlice({
@@ -46,6 +48,9 @@ export const markdownSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
+    select: (state, action: PayloadAction<Document>) => {
+      state.currentDocument = action.payload
+    },
     create: (state) => {
       state.documents.push({
         id: nanoid(),
@@ -95,7 +100,5 @@ export const { create, update, remove } = markdownSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectDocuments = (state: RootState) => state.markdown.documents
-export const currentDocument = (state: RootState) =>
-  state.markdown.documents[state.markdown.documents.length - 1]
 
 export default markdownSlice.reducer
