@@ -67,5 +67,7 @@ export const { create, update, remove } = markdownSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectDocuments = (state: RootState) => state.markdown.documents
+export const currentDocument = (state: RootState) =>
+  state.markdown.documents[state.markdown.documents.length - 1]
 
 export default markdownSlice.reducer
