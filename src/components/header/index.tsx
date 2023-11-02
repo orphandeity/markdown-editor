@@ -1,11 +1,9 @@
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import {
-  removeDocument,
   saveChanges,
   selectCurrentDocument,
   updateDocumentName,
 } from '../../store/markdown/markdownSlice'
-import { Trash2 } from 'lucide-react'
 import logo from '../../assets/logo.svg'
 import iconMenu from '../../assets/icon-menu.svg'
 import iconSave from '../../assets/icon-save.svg'
@@ -14,6 +12,7 @@ import fileIcon from '../../assets/icon-document.svg'
 import * as styles from './header.css'
 import * as filename from './filename.css'
 import { button } from '../../styles/button.css'
+import DeleteDocument from '../modal'
 
 interface HeaderProps {
   onMenuOpen: () => void
@@ -48,13 +47,10 @@ export default function Header({ onMenuOpen }: HeaderProps): JSX.Element {
         </div>
       </div>
       <menu className={styles.flexBox}>
+        <DeleteDocument />
+
         <button
-          onClick={() => dispatch(removeDocument(currentDocument))}
-          className={button({ variant: 'icon' })}
-        >
-          <Trash2 />
-        </button>
-        <button
+          tabIndex={0}
           onClick={() => dispatch(saveChanges(currentDocument))}
           className={button()}
         >

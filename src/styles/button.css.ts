@@ -8,6 +8,7 @@ export const button = recipe({
     justifyContent: 'center',
     gap: '8px',
     border: 'none',
+    borderRadius: vars.rounded,
     fontSize: vars.fontSize.appHeadingMd,
     cursor: 'pointer',
     userSelect: 'none',
@@ -22,17 +23,28 @@ export const button = recipe({
           '&:hover': {
             color: vars.color.orange,
           },
+          '&:focus': {
+            outline: 'none',
+          },
         },
       },
       primary: {
         width: '100%',
         padding: '10px 16px',
-        borderRadius: vars.rounded,
-        color: vars.color[100],
         backgroundColor: vars.color.orange,
+        color: vars.color[100],
+        outlineOffset: '-2px',
+        outline: 'transparent solid 2px',
+        transitionProperty: 'outline-offset, outline-color',
+        transitionDuration: '200ms',
+        transitionTimingFunction: 'ease-in',
         selectors: {
           '&:hover': {
             backgroundColor: vars.color.orangeHover,
+          },
+          '&:focus': {
+            outlineColor: vars.color.orangeHover,
+            outlineOffset: '2px',
           },
         },
       },
