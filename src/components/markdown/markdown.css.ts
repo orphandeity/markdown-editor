@@ -80,13 +80,14 @@ export const previewContent = style({
   display: 'flex',
   flexFlow: 'column nowrap',
   gap: '20px',
-  width: '50vw',
+  width: '100%',
+  maxWidth: '672px',
   height: '100%',
   marginInline: 'auto',
   padding: '24px',
   paddingBottom: '63px',
   fontSize: vars.fontSize.previewP,
-  lineHeight: vars.previewLineSp,
+
   color: vars.editor.text_light,
   overflow: 'auto',
 })
@@ -96,16 +97,15 @@ export const previewContent = style({
  */
 
 globalStyle(
-  `${previewContent} h1,
-   ${previewContent} h2,
-   ${previewContent} h3,
-   ${previewContent} h4,
-   ${previewContent} h5,
-   ${previewContent} code
+  `
+    ${previewContent} h1,
+    ${previewContent} h2,
+    ${previewContent} h3,
+    ${previewContent} h4,
+    ${previewContent} h5,
+    ${previewContent} code
   `,
-  {
-    color: vars.editor.text,
-  }
+  { color: vars.editor.text }
 )
 
 globalStyle(`${previewContent} h1`, {
@@ -134,14 +134,29 @@ globalStyle(`${previewContent} h6`, {
   color: vars.color.orange,
 })
 
+globalStyle(
+  `
+    ${previewContent} p,
+    ${previewContent} li,
+    ${previewContent} code,
+    ${previewContent} pre
+  `,
+  { lineHeight: vars.previewLineSp }
+)
+
 globalStyle(`${previewContent} a`, {
   color: 'inherit',
 })
 
+globalStyle(`${previewContent} pre`, {
+  whiteSpace: 'pre-wrap',
+})
+
 globalStyle(
-  `${previewContent} ul,
-   ${previewContent} ol,
-   ${previewContent} menu
+  `
+    ${previewContent} ul,
+    ${previewContent} ol,
+    ${previewContent} menu
   `,
   {
     listStylePosition: 'inside',
