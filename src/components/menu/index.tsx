@@ -7,7 +7,7 @@ import {
 import { format } from 'date-fns'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import fileIcon from '../../assets/icon-document.svg'
-import Theme from '../theme'
+import DarkMode from '../theme'
 
 import * as styles from './menu.css'
 import * as fileItem from '../../styles/fileItem.css'
@@ -47,7 +47,7 @@ export default function Menu(): JSX.Element {
           ))}
         </ul>
       </div>
-      <Theme />
+      <DarkMode />
     </div>
   )
 }

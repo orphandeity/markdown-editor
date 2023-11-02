@@ -5,7 +5,7 @@ import { Moon, Sun } from 'lucide-react'
 
 import * as styles from './switch.css'
 
-export default function Theme(): JSX.Element {
+export default function DarkMode(): JSX.Element {
   const darkMode = useAppSelector(selectTheme)
   const dispatch = useAppDispatch()
 
