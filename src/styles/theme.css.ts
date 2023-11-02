@@ -19,9 +19,8 @@ const root = createGlobalTheme(':root', {
     orange: 'hsl(13, 75%, 58%)',
     orangeHover: 'hsl(21, 86%, 67%)',
     orangeSelection: 'hsla(21, 86%, 67%, 0.4)',
-    overlay: 'hsla(216, 8%, 12%, 0.7)',
-    shadow1: 'hsla(225 9% 9%, 35%)',
-    shadow2: 'hsla(225 9% 9%, 20%)',
+    overlayLight: 'hsla(225, 9%, 9%, 0.5)',
+    overlayDark: 'hsla(213, 4%, 51%, 0.5)',
   },
   fontFamily: {
     sans: `'Roboto', sans-serif`,
@@ -53,6 +52,7 @@ const editor = createThemeContract({
   background: null,
   background_on: null,
   border: null,
+  overlay: null,
   text: null,
   text_light: null,
 })
@@ -61,6 +61,7 @@ export const light = createTheme(editor, {
   background: root.color[100],
   background_on: root.color[200],
   border: root.color[300],
+  overlay: root.color.overlayLight,
   text: root.color[700],
   text_light: root.color[500],
 })
@@ -69,6 +70,7 @@ export const dark = createTheme(editor, {
   background: root.color[1000],
   background_on: root.color[900],
   border: root.color[600],
+  overlay: root.color.overlayDark,
   text: root.color[100],
   text_light: root.color[400],
 })

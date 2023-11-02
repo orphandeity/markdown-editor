@@ -19,7 +19,7 @@ const contentShow = keyframes({
 })
 
 export const overlay = style({
-  backgroundColor: vars.color.overlay,
+  backgroundColor: vars.editor.overlay,
   position: 'fixed',
   inset: 0,
   animationName: overlayShow,
@@ -31,10 +31,11 @@ export const content = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '16px',
-  backgroundColor: vars.color[100],
+  backgroundColor: vars.editor.background_on,
   borderRadius: vars.rounded,
-  boxShadow: `${vars.color.shadow1} 0px 10px 38px -10px, ${vars.color.shadow2} 0px 10px 20px -15px`,
-  outline: `${vars.color.shadow2} solid 1px`,
+  boxShadow:
+    'hsla(0, 0%, 0%, 0.35) 0px 10px 38px -10px, hsla(0, 0%, 0%, 0.2) 0px 10px 20px -15px',
+  outline: 'hsla(0, 0%, 0%, 0.2) solid 1px',
   maxWidth: '343px',
   padding: '24px',
   width: '90vw',
@@ -47,19 +48,19 @@ export const content = style({
   animationTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
   selectors: {
     '&:focus': {
-      outline: `${vars.color.shadow2} solid 1px`,
+      outline: 'hsla(0, 0%, 0%, 0.2) solid 1px',
     },
   },
 })
 
 export const title = style({
-  color: vars.color[700],
+  color: vars.editor.text,
   fontFamily: vars.fontFamily.slab,
   fontSize: vars.fontSize.previewH4,
 })
 
 export const description = style({
-  color: vars.color[500],
+  color: vars.editor.text_light,
   fontFamily: vars.fontFamily.slab,
   fontSize: vars.fontSize.previewP,
   lineHeight: vars.previewLineSp,

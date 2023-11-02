@@ -3,13 +3,16 @@ import {
   removeDocument,
   selectCurrentDocument,
 } from '../../store/markdown/markdownSlice'
+import { dark, light } from '../../styles/theme.css'
 import * as Dialog from '@radix-ui/react-dialog'
 import { Trash2 } from 'lucide-react'
 
 import * as styles from './modal.css'
+import { selectTheme } from '../../store/theme/themeSlice'
 
 export default function DeleteDocument() {
   const currentDocument = useAppSelector(selectCurrentDocument)
+  const darkMode = useAppSelector(selectTheme)
   const dispatch = useAppDispatch()
 
   return (
@@ -20,8 +23,12 @@ export default function DeleteDocument() {
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>
-        <Dialog.Overlay className={styles.overlay} />
-        <Dialog.Content className={styles.content}>
+        <Dialog.Overlay
+          className={`${styles.overlay} ${darkMode ? dark : light}`}
+        />
+        <Dialog.Content
+          className={`${styles.content} ${darkMode ? dark : light}`}
+        >
           <Dialog.Title className={styles.title} asChild>
             <h1>Delete this document?</h1>
           </Dialog.Title>
