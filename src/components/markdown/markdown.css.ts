@@ -40,14 +40,27 @@ export const markdown = style({
 export const markdownEditor = style({
   flex: '1 1 auto',
   width: '50vw',
+  padding: '9px 16px',
+  border: 'none',
+  borderRadius: vars.rounded,
+  outline: 'transparent solid 4px',
+  outlineOffset: '-2px',
   fontFamily: vars.fontFamily.mono,
   fontSize: vars.fontSize.previewP,
   lineHeight: vars.previewLineSp,
   color: vars.editor.text,
   backgroundColor: vars.editor.background,
-  padding: '9px 16px',
-  border: 'none',
+  caretColor: vars.color.orange,
   resize: 'none',
+  transitionProperty: 'outline-color, outline-offset',
+  transitionDuration: '200ms',
+  transitionTimingFunction: 'ease',
+  selectors: {
+    '&:focus': {
+      outlineColor: vars.color.orangeSelection,
+      outlineOffset: '4px',
+    },
+  },
 })
 
 export const preview = style({

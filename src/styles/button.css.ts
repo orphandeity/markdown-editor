@@ -34,7 +34,7 @@ export const button = recipe({
         backgroundColor: vars.color.orange,
         color: vars.color[100],
         outlineOffset: '-2px',
-        outline: 'transparent solid 2px',
+        outline: 'transparent solid 4px',
         transitionProperty: 'outline-offset, outline-color',
         transitionDuration: '300ms',
         transitionTimingFunction: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)',
@@ -43,7 +43,7 @@ export const button = recipe({
             backgroundColor: vars.color.orangeHover,
           },
           '&:focus': {
-            outlineColor: vars.color.orangeHover,
+            outlineColor: vars.color.orangeSelection,
             outlineOffset: '4px',
           },
         },
