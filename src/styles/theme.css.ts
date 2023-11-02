@@ -42,6 +42,7 @@ const root = createGlobalTheme(':root', {
   fontWeight: {
     light: '300',
     regular: '400',
+    bold: '700',
   },
   rounded: '4px',
   appHeadingSmLtrSp: '2px',

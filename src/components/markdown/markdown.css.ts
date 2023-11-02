@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css'
+import { globalStyle, style } from '@vanilla-extract/css'
 import { button } from '../../styles/button.css'
 import { vars } from '../../styles/theme.css'
 
@@ -64,8 +64,98 @@ export const preview = style({
 })
 
 export const previewContent = style({
+  display: 'flex',
+  flexFlow: 'column nowrap',
+  gap: '20px',
   width: '50vw',
+  height: '100%',
   marginInline: 'auto',
   padding: '24px',
+  paddingBottom: '63px',
+  fontSize: vars.fontSize.previewP,
+  lineHeight: vars.previewLineSp,
+  color: vars.editor.text_light,
   overflow: 'auto',
+})
+
+/**
+ * Global styles for preview content
+ */
+
+globalStyle(
+  `${previewContent} h1,
+   ${previewContent} h2,
+   ${previewContent} h3,
+   ${previewContent} h4,
+   ${previewContent} h5,
+   ${previewContent} code
+  `,
+  {
+    color: vars.editor.text,
+  }
+)
+
+globalStyle(`${previewContent} h1`, {
+  fontSize: vars.fontSize.previewH1,
+})
+
+globalStyle(`${previewContent} h2`, {
+  fontSize: vars.fontSize.previewH2,
+  fontWeight: vars.fontWeight.light,
+})
+
+globalStyle(`${previewContent} h3`, {
+  fontSize: vars.fontSize.previewH3,
+})
+
+globalStyle(`${previewContent} h4`, {
+  fontSize: vars.fontSize.previewH4,
+})
+
+globalStyle(`${previewContent} h5`, {
+  fontSize: vars.fontSize.previewH5,
+})
+
+globalStyle(`${previewContent} h6`, {
+  fontSize: vars.fontSize.previewH6,
+  color: vars.color.orange,
+})
+
+globalStyle(`${previewContent} a`, {
+  color: 'inherit',
+})
+
+globalStyle(
+  `${previewContent} ul,
+   ${previewContent} ol,
+   ${previewContent} menu
+  `,
+  {
+    listStylePosition: 'inside',
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    gap: '4px',
+  }
+)
+
+globalStyle(`${previewContent} ul li::marker`, {
+  color: vars.color.orange,
+  content: "'\u2022'",
+  fontSize: '0.75em',
+})
+
+globalStyle(`${previewContent} blockquote`, {
+  padding: '24px',
+  borderRadius: vars.rounded,
+  borderLeft: `${vars.color.orange} solid 4px`,
+  backgroundColor: vars.editor.background_on,
+  color: vars.editor.text,
+  fontWeight: vars.fontWeight.bold,
+})
+
+globalStyle(`${previewContent} pre`, {
+  padding: '24px',
+  borderRadius: vars.rounded,
+  backgroundColor: vars.editor.background_on,
+  color: vars.editor.text,
 })
