@@ -36,7 +36,6 @@ export default function DeleteDocument() {
             <p>
               Are you sure you want to delete the{' '}
               <span>'{currentDocument.name}'</span> document and its contents?
-              <br />
               This action cannot be reversed.
             </p>
           </Dialog.Description>
