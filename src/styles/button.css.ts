@@ -36,15 +36,15 @@ export const button = recipe({
         outlineOffset: '-2px',
         outline: 'transparent solid 2px',
         transitionProperty: 'outline-offset, outline-color',
-        transitionDuration: '200ms',
-        transitionTimingFunction: 'ease-in',
+        transitionDuration: '300ms',
+        transitionTimingFunction: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)',
         selectors: {
           '&:hover': {
             backgroundColor: vars.color.orangeHover,
           },
           '&:focus': {
             outlineColor: vars.color.orangeHover,
-            outlineOffset: '2px',
+            outlineOffset: '4px',
           },
         },
       },

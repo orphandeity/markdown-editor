@@ -71,6 +71,6 @@ export const iconButton = button({ variant: 'icon' })
 export const primaryButton = style([
   button({ variant: 'primary' }),
   {
-    transitionDelay: '500ms',
+    transitionDelay: '200ms',
   },
 ])
