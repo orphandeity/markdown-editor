@@ -12,15 +12,7 @@ import Theme from '../theme'
 import * as styles from './menu.css'
 import * as fileItem from '../../styles/fileItem.css'
 
-interface MenuProps {
-  darkMode: boolean
-  onThemeChange: () => void
-}
-
-export default function Menu({
-  darkMode,
-  onThemeChange,
-}: MenuProps): JSX.Element {
+export default function Menu(): JSX.Element {
   const documents = useAppSelector(selectDocuments)
   const dispatch = useAppDispatch()
 
@@ -55,7 +47,7 @@ export default function Menu({
           ))}
         </ul>
       </div>
-      <Theme darkMode={darkMode} onThemeChange={onThemeChange} />
+      <Theme />
     </div>
   )
 }

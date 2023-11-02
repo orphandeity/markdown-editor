@@ -5,14 +5,17 @@ import MarkdownEditor from './components/markdown'
 
 import { dark, light } from './styles/theme.css'
 import { container } from './styles/app.css'
+import { useAppSelector } from './store/hooks'
+import { selectTheme } from './store/theme/themeSlice'
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState<boolean>(false)
+  const darkMode = useAppSelector(selectTheme)
+
   const [open, setOpen] = useState<boolean>(false)
 
   return (
     <div data-open={open} className={`${darkMode ? dark : light} ${container}`}>
-      <Menu darkMode={darkMode} onThemeChange={() => setDarkMode(!darkMode)} />
+      <Menu />
       <div id="main">
         <Header onMenuOpen={() => setOpen(!open)} />
         <MarkdownEditor />
