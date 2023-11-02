@@ -6,6 +6,7 @@ import {
 } from '../../store/markdown/markdownSlice'
 import logo from '../../assets/logo.svg'
 import iconMenu from '../../assets/icon-menu.svg'
+import iconClose from '../../assets/icon-close.svg'
 import iconSave from '../../assets/icon-save.svg'
 import fileIcon from '../../assets/icon-document.svg'
 
@@ -15,10 +16,14 @@ import { button } from '../../styles/button.css'
 import DeleteDocument from '../modal'
 
 interface HeaderProps {
+  isOpen: boolean
   onMenuOpen: () => void
 }
 
-export default function Header({ onMenuOpen }: HeaderProps): JSX.Element {
+export default function Header({
+  isOpen,
+  onMenuOpen,
+}: HeaderProps): JSX.Element {
   const currentDocument = useAppSelector(selectCurrentDocument)
   const dispatch = useAppDispatch()
 
@@ -26,7 +31,7 @@ export default function Header({ onMenuOpen }: HeaderProps): JSX.Element {
     <header className={styles.container}>
       <div className={styles.flexBox}>
         <button className={styles.menuButton} onClick={onMenuOpen}>
-          <img src={iconMenu} alt="show menu" />
+          <img src={isOpen ? iconClose : iconMenu} alt="toggle menu" />
         </button>
 
         <img src={logo} alt="markdown" />

@@ -17,7 +17,7 @@ export default function App() {
     <div data-open={open} className={`${darkMode ? dark : light} ${container}`}>
       <Menu />
       <div id="main">
-        <Header onMenuOpen={() => setOpen(!open)} />
+        <Header isOpen={open} onMenuOpen={() => setOpen(!open)} />
         <MarkdownEditor />
       </div>
     </div>
