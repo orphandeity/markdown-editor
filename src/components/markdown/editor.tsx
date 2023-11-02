@@ -1,14 +1,14 @@
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import {
+  selectCurrentDocument,
+  updateCurrentDocument,
+} from '../../store/markdown/markdownSlice'
 import * as styles from './markdown.css'
 
-interface MarkdownProps {
-  markdown?: string
-  onUpdateMarkdown: (markdown: string) => void
-}
+export default function Editor(): JSX.Element {
+  const currentDocument = useAppSelector(selectCurrentDocument)
+  const dispatch = useAppDispatch()
 
-export default function Editor({
-  markdown,
-  onUpdateMarkdown,
-}: MarkdownProps & React.HTMLProps<HTMLElement>) {
   return (
     <main className={styles.markdown}>
       <header className={styles.header}>
@@ -16,8 +16,8 @@ export default function Editor({
       </header>
       <textarea
         className={styles.markdownEditor}
-        onChange={(e) => onUpdateMarkdown(e.target.value)}
-        value={markdown}
+        onChange={(e) => dispatch(updateCurrentDocument(e.target.value))}
+        value={currentDocument.content}
       />
     </main>
   )

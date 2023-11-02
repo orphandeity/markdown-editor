@@ -1,27 +1,29 @@
-import { Document } from '../../App'
-import { useAutoAnimate } from '@formkit/auto-animate/react'
+import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import {
+  createNewDocument,
+  select,
+  selectDocuments,
+} from '../../store/markdown/markdownSlice'
 import { format } from 'date-fns'
-import Theme from '../theme'
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 import fileIcon from '../../assets/icon-document.svg'
+import Theme from '../theme'
 
 import * as styles from './menu.css'
 import * as fileItem from '../../styles/fileItem.css'
 
 interface MenuProps {
   darkMode: boolean
-  documents: Document[]
-  onNewDocumentClick: () => void
   onThemeChange: () => void
-  onDocumentSelect: (document: Document) => void
 }
 
 export default function Menu({
   darkMode,
-  documents,
-  onNewDocumentClick,
   onThemeChange,
-  onDocumentSelect,
 }: MenuProps): JSX.Element {
+  const documents = useAppSelector(selectDocuments)
+  const dispatch = useAppDispatch()
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [parent, enableAnimations] = useAutoAnimate()
 
@@ -29,14 +31,17 @@ export default function Menu({
     <div className={styles.container}>
       <div>
         <h2 className={styles.heading}>my documents</h2>
-        <button className={styles.primaryButton} onClick={onNewDocumentClick}>
+        <button
+          className={styles.primaryButton}
+          onClick={() => dispatch(createNewDocument())}
+        >
           + New Document
         </button>
         <ul ref={parent} className={styles.fileList}>
           {documents.map((document) => (
             <li
               key={document.name}
-              onClick={() => onDocumentSelect(document)}
+              onClick={() => dispatch(select(document))}
               className={fileItem.container}
             >
               <img src={fileIcon} alt="" />

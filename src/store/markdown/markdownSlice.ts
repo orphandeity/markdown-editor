@@ -51,7 +51,13 @@ export const markdownSlice = createSlice({
     select: (state, action: PayloadAction<Document>) => {
       state.currentDocument = action.payload
     },
-    create: (state) => {
+    updateCurrentDocument: (state, action: PayloadAction<string>) => {
+      state.currentDocument.content = action.payload
+    },
+    updateDocumentName: (state, action: PayloadAction<string>) => {
+      state.currentDocument.name = action.payload
+    },
+    createNewDocument: (state) => {
       state.documents.push({
         id: nanoid(),
         createdAt: new Date().toISOString(),
@@ -66,13 +72,12 @@ export const markdownSlice = createSlice({
         )
       }
     },
-    // Use the PayloadAction type to declare the contents of `action.payload`
-    update: (state, action: PayloadAction<Document>) => {
-      const { id, name, content } = action.payload
+    saveChanges: (state, action: PayloadAction<Document>) => {
+      const { id } = action.payload
       const document = state.documents.find((doc) => doc.id === id)
       if (document) {
-        document.name = name
-        document.content = content
+        document.name = state.currentDocument.name
+        document.content = state.currentDocument.content
       }
 
       if (storageAvailable()) {
@@ -82,7 +87,7 @@ export const markdownSlice = createSlice({
         )
       }
     },
-    remove: (state, action: PayloadAction<Document>) => {
+    removeDocument: (state, action: PayloadAction<Document>) => {
       const { id } = action.payload
       state.documents = state.documents.filter((doc) => doc.id !== id)
 
@@ -96,9 +101,18 @@ export const markdownSlice = createSlice({
   },
 })
 
-export const { create, update, remove } = markdownSlice.actions
+export const {
+  select,
+  updateCurrentDocument,
+  updateDocumentName,
+  createNewDocument,
+  saveChanges,
+  removeDocument,
+} = markdownSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
 export const selectDocuments = (state: RootState) => state.markdown.documents
+export const selectCurrentDocument = (state: RootState) =>
+  state.markdown.currentDocument
 
 export default markdownSlice.reducer

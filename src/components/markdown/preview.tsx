@@ -3,19 +3,21 @@ import remarkGfm from 'remark-gfm'
 import { Eye, EyeOff } from 'lucide-react'
 
 import * as styles from './markdown.css'
+import { selectCurrentDocument } from '../../store/markdown/markdownSlice'
+import { useAppSelector } from '../../store/hooks'
 
 interface PreviewProps {
-  markdown: string
   showPreview: boolean
   onShowPreview: () => void
 }
 
 export default function Preview({
-  markdown,
   showPreview,
   onShowPreview,
   ...props
 }: PreviewProps & React.HTMLProps<HTMLElement>): JSX.Element {
+  const currentDocument = useAppSelector(selectCurrentDocument)
+
   return (
     <aside {...props} data-show={showPreview} className={styles.preview}>
       <header className={styles.header}>
@@ -26,7 +28,7 @@ export default function Preview({
         </button>
       </header>
       <Markdown className={styles.previewContent} remarkPlugins={[remarkGfm]}>
-        {markdown}
+        {currentDocument.content}
       </Markdown>
     </aside>
   )
