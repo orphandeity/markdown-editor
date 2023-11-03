@@ -20,4 +20,4 @@ This web application allows you to create, read, update, and delete markdown doc
 
 ## Live Demo
 
-You can access a live deployment of this web app on [GitHub Pages](https://your-github-username.github.io/markdown-editor). ✌️
+✌️ You can access a live deployment of this web app on [GitHub Pages](https://your-github-username.github.io/markdown-editor).
