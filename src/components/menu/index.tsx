@@ -6,6 +6,7 @@ import {
 } from '../../store/markdown/markdownSlice'
 import { format } from 'date-fns'
 import { useAutoAnimate } from '@formkit/auto-animate/react'
+import logo from '../../assets/logo.svg'
 import fileIcon from '../../assets/icon-document.svg'
 import DarkMode from '../theme'
 
@@ -22,6 +23,7 @@ export default function Menu(): JSX.Element {
   return (
     <div className={styles.container}>
       <div>
+        <img src={logo} alt="markdown" className={styles.logo} />
         <h2 className={styles.heading}>my documents</h2>
         <button
           className={styles.primaryButton}

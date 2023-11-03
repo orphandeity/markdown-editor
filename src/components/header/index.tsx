@@ -12,7 +12,6 @@ import fileIcon from '../../assets/icon-document.svg'
 
 import * as styles from './header.css'
 import * as filename from './filename.css'
-import { button } from '../../styles/button.css'
 import DeleteDocument from '../modal'
 
 interface HeaderProps {
@@ -34,7 +33,7 @@ export default function Header({
           <img src={isOpen ? iconClose : iconMenu} alt="toggle menu" />
         </button>
 
-        <img src={logo} alt="markdown" />
+        <img src={logo} alt="markdown" className={styles.logo} />
 
         <div className={styles.divider} />
 
@@ -57,10 +56,10 @@ export default function Header({
         <button
           tabIndex={0}
           onClick={() => dispatch(saveChanges(currentDocument))}
-          className={button()}
+          className={styles.saveButton}
         >
           <img src={iconSave} alt="" />
-          <span>Save Changes</span>
+          <span className={styles.saveButtonText}>Save Changes</span>
         </button>
       </menu>
     </header>

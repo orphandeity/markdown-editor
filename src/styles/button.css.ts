@@ -30,7 +30,7 @@ export const button = recipe({
       },
       primary: {
         width: '100%',
-        padding: '10px 16px',
+        padding: '10px',
         backgroundColor: vars.color.orange,
         color: vars.color[100],
         outlineOffset: '-2px',

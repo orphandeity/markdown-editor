@@ -13,6 +13,14 @@ export const container = style({
   color: vars.color[500],
 })
 
+export const logo = style({
+  '@media': {
+    'screen and (min-width: 1024px)': {
+      display: 'none',
+    },
+  },
+})
+
 export const heading = style({
   selectors: {
     [`${container} &`]: {
@@ -20,6 +28,12 @@ export const heading = style({
       fontWeight: vars.fontWeight.regular,
       textTransform: 'uppercase',
       letterSpacing: vars.appHeadingSmLtrSp,
+      marginTop: '27px',
+      '@media': {
+        'screen and (min-width: 1024px)': {
+          marginTop: '0',
+        },
+      },
     },
   },
 })
