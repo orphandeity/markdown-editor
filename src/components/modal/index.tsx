@@ -19,7 +19,7 @@ export default function DeleteDocument() {
     <Dialog.Root>
       <Dialog.Trigger asChild>
         <button className={styles.iconButton}>
-          <Trash2 />
+          <Trash2 width={18} />
         </button>
       </Dialog.Trigger>
       <Dialog.Portal>

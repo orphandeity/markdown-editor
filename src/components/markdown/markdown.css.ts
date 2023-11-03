@@ -31,6 +31,15 @@ export const heading = style({
   textTransform: 'uppercase',
 })
 
+export const mobile = style({
+  display: 'flex',
+  flexDirection: 'column',
+  height: 'calc(100vh - 56px)',
+  width: '100vw',
+  backgroundColor: vars.editor.background,
+  color: vars.editor.text,
+})
+
 export const markdown = style({
   display: 'flex',
   flexDirection: 'column',
@@ -45,8 +54,6 @@ export const markdownEditor = style({
   padding: '9px 16px',
   border: 'none',
   borderRadius: vars.rounded,
-  outline: 'transparent solid 4px',
-  outlineOffset: '-2px',
   fontFamily: vars.fontFamily.mono,
   fontSize: vars.fontSize.previewP,
   lineHeight: vars.previewLineSp,
@@ -54,9 +61,6 @@ export const markdownEditor = style({
   backgroundColor: vars.editor.background,
   caretColor: vars.color.orange,
   resize: 'none',
-  transitionProperty: 'outline-color, outline-offset',
-  transitionDuration: '200ms',
-  transitionTimingFunction: 'ease',
   '@media': {
     'screen and (min-width: 768px)': {
       width: '50vw',
@@ -64,19 +68,9 @@ export const markdownEditor = style({
   },
   selectors: {
     '&:focus': {
-      outlineColor: vars.color.orangeSelection,
-      outlineOffset: '4px',
+      outline: 'none',
     },
   },
-})
-
-export const mobile = style({
-  display: 'flex',
-  flexDirection: 'column',
-  height: 'calc(100vh - 56px)',
-  width: '100vw',
-  backgroundColor: vars.editor.background,
-  color: vars.editor.text,
 })
 
 export const preview = style({
