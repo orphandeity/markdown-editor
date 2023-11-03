@@ -3,6 +3,7 @@ import {
   selectCurrentDocument,
   updateCurrentDocument,
 } from '../../store/markdown/markdownSlice'
+
 import * as styles from './markdown.css'
 
 export default function Editor(): JSX.Element {

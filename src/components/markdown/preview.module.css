@@ -1,9 +1,0 @@
-.preview {
-  display: 'flex';
-  flex-flow: 'column nowrap';
-  gap: '20px';
-  width: '50vw';
-  margin-inline: 'auto';
-  padding: '24px';
-  overflow: 'auto';
-}

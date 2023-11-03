@@ -38,8 +38,10 @@ export const markdown = style({
 })
 
 export const markdownEditor = style({
+  alignSelf: 'center',
   flex: '1 1 auto',
-  width: '50vw',
+  width: '100%',
+  maxWidth: '672px',
   padding: '9px 16px',
   border: 'none',
   borderRadius: vars.rounded,
@@ -55,6 +57,11 @@ export const markdownEditor = style({
   transitionProperty: 'outline-color, outline-offset',
   transitionDuration: '200ms',
   transitionTimingFunction: 'ease',
+  '@media': {
+    'screen and (min-width: 768px)': {
+      width: '50vw',
+    },
+  },
   selectors: {
     '&:focus': {
       outlineColor: vars.color.orangeSelection,
@@ -63,8 +70,17 @@ export const markdownEditor = style({
   },
 })
 
+export const mobile = style({
+  display: 'flex',
+  flexDirection: 'column',
+  height: 'calc(100vh - 56px)',
+  width: '100vw',
+  backgroundColor: vars.editor.background,
+  color: vars.editor.text,
+})
+
 export const preview = style({
-  height: 'calc(100vh - 72px)',
+  height: 'calc(100vh - 56px)',
   fontFamily: vars.fontFamily.slab,
   width: '100%',
   borderLeft: `1px solid ${vars.editor.border}`,
@@ -72,6 +88,12 @@ export const preview = style({
   selectors: {
     '&[data-show="true"]': {
       borderColor: 'transparent',
+    },
+  },
+  '@media': {
+    'screen and (max-width: 768px)': {
+      borderLeft: 'none',
+      height: 'calc(100vh - 72px)',
     },
   },
 })
