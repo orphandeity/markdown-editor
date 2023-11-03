@@ -8,7 +8,7 @@ import * as Dialog from '@radix-ui/react-dialog'
 import { Trash2 } from 'lucide-react'
 
 import * as styles from './modal.css'
-import { selectTheme } from '../../store/theme/themeSlice'
+import { selectTheme } from '../../store/app/appSlice'
 
 export default function DeleteDocument() {
   const currentDocument = useAppSelector(selectCurrentDocument)

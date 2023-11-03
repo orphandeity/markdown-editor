@@ -1,9 +1,11 @@
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
+import { selectMenu, toggleMenu } from '../../store/app/appSlice'
 import {
   saveChanges,
   selectCurrentDocument,
   updateDocumentName,
 } from '../../store/markdown/markdownSlice'
+import DeleteDocument from '../modal'
 import logo from '../../assets/logo.svg'
 import iconMenu from '../../assets/icon-menu.svg'
 import iconClose from '../../assets/icon-close.svg'
@@ -12,25 +14,20 @@ import fileIcon from '../../assets/icon-document.svg'
 
 import * as styles from './header.css'
 import * as filename from './filename.css'
-import DeleteDocument from '../modal'
 
-interface HeaderProps {
-  isOpen: boolean
-  onMenuOpen: () => void
-}
-
-export default function Header({
-  isOpen,
-  onMenuOpen,
-}: HeaderProps): JSX.Element {
+export default function Header(): JSX.Element {
+  const menu = useAppSelector(selectMenu)
   const currentDocument = useAppSelector(selectCurrentDocument)
   const dispatch = useAppDispatch()
 
   return (
     <header className={styles.container}>
       <div className={styles.flexBox}>
-        <button className={styles.menuButton} onClick={onMenuOpen}>
-          <img src={isOpen ? iconClose : iconMenu} alt="toggle menu" />
+        <button
+          className={styles.menuButton}
+          onClick={() => dispatch(toggleMenu())}
+        >
+          <img src={menu ? iconClose : iconMenu} alt="toggle menu" />
         </button>
 
         <img src={logo} alt="markdown" className={styles.logo} />

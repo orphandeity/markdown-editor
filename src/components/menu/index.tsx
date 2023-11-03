@@ -1,3 +1,4 @@
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import {
   createNewDocument,
@@ -5,7 +6,6 @@ import {
   selectDocuments,
 } from '../../store/markdown/markdownSlice'
 import { format } from 'date-fns'
-import { useAutoAnimate } from '@formkit/auto-animate/react'
 import logo from '../../assets/logo.svg'
 import fileIcon from '../../assets/icon-document.svg'
 import DarkMode from '../theme'

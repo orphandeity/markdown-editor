@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import { selectTheme, toggleDarkMode } from '../../store/theme/themeSlice'
+import { selectTheme, toggleDarkMode } from '../../store/app/appSlice'
 import * as Switch from '@radix-ui/react-switch'
 import { Moon, Sun } from 'lucide-react'
 
