@@ -39,7 +39,7 @@ export const heading = style({
 export const mobile = style({
   display: 'flex',
   flexDirection: 'column',
-  height: 'calc(100vh - 56px)',
+  height: 'calc(100dvh - 56px)',
   width: '100vw',
   backgroundColor: vars.editor.background,
   color: vars.editor.text,
