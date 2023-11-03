@@ -17,8 +17,7 @@ export default function Menu(): JSX.Element {
   const documents = useAppSelector(selectDocuments)
   const dispatch = useAppDispatch()
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [parent, enableAnimations] = useAutoAnimate()
+  const [parent] = useAutoAnimate()
 
   return (
     <div className={styles.container}>

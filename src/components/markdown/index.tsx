@@ -12,8 +12,7 @@ export default function MarkdownEditor(): JSX.Element {
   const preview = useAppSelector(selectPreview)
   const matches = useMediaQuery('(min-width: 768px)')
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [parent, enableAnimations] = useAutoAnimate()
+  const [parent] = useAutoAnimate()
 
   return matches ? (
     <article ref={parent} className={container}>

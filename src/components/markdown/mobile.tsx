@@ -16,8 +16,7 @@ export default function MobileEditor(): JSX.Element {
   const currentDocument = useAppSelector(selectCurrentDocument)
   const dispatch = useAppDispatch()
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [parent, enableAnimations] = useAutoAnimate()
+  const [parent] = useAutoAnimate()
 
   return (
     <main ref={parent} className={styles.mobile}>
