@@ -3,6 +3,15 @@ import react from '@vitejs/plugin-react-swc'
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin'
 
 // https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react(), vanillaExtractPlugin()],
+export default defineConfig(({ command }) => {
+  const config = {
+    plugins: [react(), vanillaExtractPlugin()],
+    base: '/',
+  }
+
+  if (command !== 'serve') {
+    config.base = '/markdown-editor/'
+  }
+
+  return config
 })
