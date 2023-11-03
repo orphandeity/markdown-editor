@@ -15,7 +15,7 @@ export default function MarkdownEditor(): JSX.Element {
   const [parent] = useAutoAnimate()
 
   return matches ? (
-    <article ref={parent} className={container}>
+    <article data-show={preview} ref={parent} className={container}>
       {!preview && <Editor />}
       <Preview />
     </article>

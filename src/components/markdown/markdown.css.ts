@@ -3,11 +3,16 @@ import { button } from '../../styles/button.css'
 import { vars } from '../../styles/theme.css'
 
 export const container = style({
-  display: 'flex',
-  flexFlow: 'row nowrap',
+  display: 'grid',
+  gridTemplateColumns: '1fr 1fr',
   width: '100vw',
   backgroundColor: vars.editor.background,
   color: vars.editor.text,
+  selectors: {
+    '&[data-show="true"]': {
+      gridTemplateColumns: '1fr',
+    },
+  },
 })
 
 export const iconButton = button({ variant: 'icon' })
