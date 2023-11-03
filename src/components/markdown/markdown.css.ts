@@ -80,7 +80,6 @@ export const markdownEditor = style({
 
 export const preview = style({
   height: 'calc(100vh - 56px)',
-  fontFamily: vars.fontFamily.slab,
   width: '100%',
   borderLeft: `1px solid ${vars.editor.border}`,
   transition: 'border-color 0.6s ease-in-out',
@@ -107,6 +106,7 @@ export const previewContent = style({
   marginInline: 'auto',
   padding: '24px',
   paddingBottom: '63px',
+  fontFamily: vars.fontFamily.slab,
   fontSize: vars.fontSize.previewP,
 
   color: vars.editor.text_light,
