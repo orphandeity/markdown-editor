@@ -6,11 +6,16 @@ export const container = style({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  height: '100%',
+  maxHeight: '100svh',
   minWidth: '250px',
   padding: '27px 24px 24px',
   backgroundColor: vars.color[900],
   color: vars.color[500],
+  '@media': {
+    'screen and (min-width: 768px)': {
+      maxHeight: '100%',
+    },
+  },
 })
 
 export const logo = style({
